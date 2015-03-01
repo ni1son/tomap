@@ -10,8 +10,8 @@ See demo there: [tomap.staheev.com](http://tomap.staheev.com)
 - Ability to assign your event handlers via callbacks on key events
 
 ##Installation and Use
-###1 step: Link required libraries
-We need Google API, jQuery. Add this code to <head> part of the site:
+###Step 1: Link required libraries
+We need Google API, jQuery. Add this code to \<head\> part of the site:
 
 ```html
 <!-- Google API -->
@@ -24,14 +24,14 @@ We need Google API, jQuery. Add this code to <head> part of the site:
 <script src="js/jquery.toMap.js" />
 ```
 
-###2 step: Adding map container
+###Step 2: Adding map container
 Add div block to body section. If you not assign width and height to container, size of map will be 200x150, but you can change it via css.
 
 ```javascript
 <div id="map"></div>
 ```
 
-###3 step: Call the plugin
+###Step 3: Call the plugin
 To plugin work correctly put your code inside $(document).ready():
 ```javascript
 $(document).ready (function() {
