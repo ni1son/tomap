@@ -1,4 +1,5 @@
-#jQuery.toMap - plugin for simple creating google map with markers on web-page.
+#jQuery.toMap
+####Plugin for simple creating google map with markers on web-page.
 
 See demo there: [tomap.staheev.com](http://tomap.staheev.com)
 
@@ -13,7 +14,7 @@ See demo there: [tomap.staheev.com](http://tomap.staheev.com)
 We need Google API, jQuery. Add this code to <head> part of the site:
 
 ```html
-<!-- Google API --->
+<!-- Google API -->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
 <!-- jQuery library (served from Google) -->
@@ -31,14 +32,14 @@ Add div block to body section. If you not assign width and height to container, 
 ```
 
 ###3 step: Call the plugin
-To plugin work correctly put your code inside this:
+To plugin work correctly put your code inside $(document).ready():
 ```javascript
 $(document).ready (function() {
     // put your code there
 });
 ```
 
-Init plugin:
+Initialization plugin:
 
 ```javascript
 var map = $('#map').toMap();
