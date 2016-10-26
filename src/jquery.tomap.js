@@ -12,7 +12,7 @@
     var methods = {
         init: function (settings) {
             var defaultSettings = {
-                defaultZoom: 3,
+                defaultZoom: 18,
                 defaultCenter: '35.337023,25.124880',
                 isOnlyOneWindow: true
             };
@@ -73,8 +73,11 @@
                                 markersBounds.extend(position);
                             }
 
+                            if (data.markers.length > 1) {
+                                map.fitBounds(markersBounds);
+                            }
+                            
                             map.setCenter(markersBounds.getCenter());
-                            map.fitBounds(markersBounds);
                         });
                     },
 
