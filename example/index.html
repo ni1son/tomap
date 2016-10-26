@@ -8,7 +8,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
     <!-- jquery library (served from google) -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
     <!-- jquery.tomap (change if required path to the jquery.tomap.js) -->
     <script src="../src/jquery.tomap.js"></script>
@@ -19,9 +19,9 @@
         <script>
 
             $(document).ready (function() {
-                var map = $('#map').tomap();
-                $('#map').toMap('add_marker', '11.000,14.000', 'Text about');
-
+                var map = $('#map').reMap();
+                $('#map').reMap('add_marker', '53.904006, 27.556040', 'Гостиный двор');
+            
             });
         </script>
     </body>
