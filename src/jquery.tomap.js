@@ -1,5 +1,5 @@
 /**
- * jQuery.reMap
+ * jQuery.toMap
  *
  * Copyright (c) 2015 Ilya R. Staheev <ilya@staheev.com>
  *
@@ -63,7 +63,7 @@
                     refresh: function () {
                         el.each(function () {
                             var $this = $(this),
-                                data = $this.data('reMap'),
+                                data = $this.data('toMap'),
                                 map = $this.data('map');
 
                             var markersBounds = new google.maps.LatLngBounds();
@@ -83,7 +83,7 @@
 
                     get_marker_by_id: function (id) {
                         var $el = $(el),
-                            data = $el.data('reMap'),
+                            data = $el.data('toMap'),
                             markers = data.markers;
 
                         for (var i = 0; i < markers.length; i++)
@@ -95,7 +95,7 @@
 
                     get_content_window: function (text) {
                         var $el = $(el),
-                            data = $el.data('reMap');
+                            data = $el.data('toMap');
 
                         if (typeof(data.callbacks.win_theme) == 'function')
                             text = data.callbacks.win_theme(text); // Callback themisation of window content
@@ -114,7 +114,7 @@
 
                     register_listener: function (id, callback) {
                         var $el = $(el),
-                            data = $el.data('reMap');
+                            data = $el.data('toMap');
                         this.pass_throw_markers(id, function (marker) {
                             google.maps.event.addListener(marker.obj, 'click', function () {
                                 if (typeof(data.callbacks.marker_click) == 'function') {
@@ -128,7 +128,7 @@
 
                     open_window: function (text, map, marker_obj) {
                         var $el = $(el),
-                            data = $el.data('reMap');
+                            data = $el.data('toMap');
 
                         var window = this.get_content_window(text);
                         data.windows.push(window);
@@ -137,7 +137,7 @@
 
                     close_all_win: function () {
                         var $el = $(el),
-                            data = $el.data('reMap');
+                            data = $el.data('toMap');
 
                         data.windows.forEach(function (window, i, arr) {
                             window.close();
@@ -149,8 +149,8 @@
             el.each(function () {
                 var $this = $(this);
 
-                if (!$this.data('reMap'))
-                    $this.data('reMap', {
+                if (!$this.data('toMap'))
+                    $this.data('toMap', {
                         target: $this,
                         fn: private_fn,
                         settings: settings,
@@ -168,17 +168,17 @@
             return this.each(function () {
 
                 var $this = $(this),
-                    data = $this.data('reMap');
+                    data = $this.data('toMap');
 
-                data.reMap.remove();
-                $this.removeData('reMap');
+                data.toMap.remove();
+                $this.removeData('toMap');
             })
 
         },
 
         add_marker: function (coord, text, marker_id) {
             var $this = $(this),
-                data = $this.data('reMap');
+                data = $this.data('toMap');
 
             if (!coord) coord = data.settings.defaultCenter;
             if (!data.markers) data.markers = [];
@@ -205,7 +205,7 @@
 
         open_win: function (marker_id) {
             var $this = $(this),
-                data = $this.data('reMap');
+                data = $this.data('toMap');
 
             if (data.settings.isOnlyOneWindow)
                 data.fn.close_all_win();
@@ -217,7 +217,7 @@
 
         close_all_win: function () {
             var $this = $(this),
-                data = $this.data('reMap');
+                data = $this.data('toMap');
 
             if (typeof(data.callback.all_window_close) == 'undefined') {
                 data.callback.all_window_close();
@@ -230,40 +230,40 @@
 
         callback_win_theme: function (fun) {
             var $this = $(this),
-                data = $this.data('reMap');
+                data = $this.data('toMap');
 
             data.callbacks.win_theme = fun;
         },
 
         callback_marker_click: function (fun) {
             var $this = $(this),
-                data = $this.data('reMap');
+                data = $this.data('toMap');
 
             data.callbacks.marker_click = fun;
         },
 
         callback_window_close: function (fun) {
             var $this = $(this),
-                data = $this.data('reMap');
+                data = $this.data('toMap');
 
             data.callback.window_close = fun
         },
 
         callback_all_window_close: function (fun) {
             var $this = $(this),
-                data = $this.data('reMap');
+                data = $this.data('toMap');
 
             data.callback.all_window_close = fun
         }
     };
 
-    jQuery.fn.reMap = function (method) {
+    jQuery.fn.toMap = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
-            $.error('Method ' + method + ' does not exist on jQuery.reMap');
+            $.error('Method ' + method + ' does not exist on jQuery.toMap');
         }
     }
 })(jQuery);
