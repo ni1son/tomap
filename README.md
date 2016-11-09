@@ -1,8 +1,6 @@
 #jQuery.toMap
 ####Plugin for simple creating google map with markers on web-page.
 
-See demo there: [tomap.staheev.com](http://tomap.staheev.com)
-
 ##Main feauters
 - Displaying google map on a site
 - Dinamically adding markers on your map. The scale of the map will be changed automatically
@@ -51,4 +49,3 @@ Adding a marker to map:
 map.toMap('add_marker', '33.000,11.00', 'Text about');
 ```
 
-For more information see documentation: [tomap](http://tomap.staheev.com/documentation)
